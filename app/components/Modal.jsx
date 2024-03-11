@@ -1,12 +1,13 @@
 'use client'
 import axios from 'axios';
 import { useState } from 'react';
+
 export default function Modal({openModal,closeModal}) {
     const [title,setTitle] = useState('')
     const [content,setContent] =useState('')
 
     function postSave(title,content){
-      axios.post('api/insert',{title:title,content:content})
+      axios.post('/api/insert',{title:title,content:content})
       .then((res)=>console.log(res))
     }
   return (
