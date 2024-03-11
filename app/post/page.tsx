@@ -3,10 +3,17 @@ import Postcreate from '../components/Postcreate'
 import Link from 'next/link';
 import useSWR from 'swr';
 import fetcher from'../../utils/fetcher'
-
+import {ObjectId} from 'mongodb';
 export default function Post() {
 
-    const {data,error,isLoading,mutate} = useSWR<[{'_id':string,'title':string,'content':string}]>('/api/search',fetcher)
+  interface IData {
+    "_id": ObjectId; // MongoDB ObjectId를 문자열로 변환
+    "title": string;
+    "content": string;
+}
+
+    const {data,mutate} = useSWR<IData[]>('/api/search',fetcher)
+    console.log('뭐나오냐',data)
     mutate()
   return (
     <div className="bg-gray-50 p-10">

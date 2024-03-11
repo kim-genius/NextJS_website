@@ -1,4 +1,7 @@
-export default function fetcher(url:string):any{
-    fetch(url).then(res => res.json())
-}
 
+import axios from 'axios';
+const fetcher = (url:string)=>( axios.get(url,{withCredentials:true}).then((res)=>res.data))
+
+
+
+export default fetcher;
