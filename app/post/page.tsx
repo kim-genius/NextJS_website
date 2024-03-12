@@ -13,7 +13,6 @@ export default function Post() {
 }
 
     const {data,mutate} = useSWR<IData[]>('/api/search',fetcher)
-    console.log('뭐나오냐',data)
     mutate()
   return (
     <div className="bg-gray-50 p-10">
@@ -26,6 +25,7 @@ export default function Post() {
                     <Link href={`/post/detail/${a._id}`}>
                     <h4 className="text-3xl font-extrabold m-0 text-black">{a.title}</h4>
                     <p className="text-lg text-gray-400 my-5 mx-0">{a.content}</p>
+                   
                     </Link>
                   </div>
                 )
