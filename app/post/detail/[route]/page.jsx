@@ -6,8 +6,11 @@ export default async function Detail(props) {
     const client = await connectDB;
     const db = client.db('forum')
      let result = await db.collection('post').findOne({_id: new ObjectId(props.params.route)})
+     if(result == undefined) result = []
   return (
+      
     <div className="bg-white p-10 flex flex-col">
+   
       <h1 className="text-3xl text-black">{result.title}</h1>
       <p className="text-lg text-black">{result.content}</p>
       <div className="mt-20">
@@ -15,5 +18,7 @@ export default async function Detail(props) {
         <Delete id={props.params.route}></Delete>
       </div>
   </div>
+
+
   );
 }
