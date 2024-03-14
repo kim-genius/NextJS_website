@@ -21,7 +21,6 @@ export default function RootLayout({
         <Link className="mr-10" href="/">home</Link>
         <Link className="mr-10" href="/list">list페이지</Link>
         <Link className="mr-10" href="/post">post페이지</Link>
-        <Link className="mr-10" href="/testfolder">testpage</Link>
       </div>
         {children}
       </body>

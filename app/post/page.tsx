@@ -24,8 +24,7 @@ export default function Post() {
                     <div className="bg-white rounded-lg p-20 mb-5 shadow-md " key={index}>
                     <Link href={`/post/detail/${a._id}`}>
                     <h4 className="text-3xl font-extrabold m-0 text-black">{a.title}</h4>
-                    <p className="text-lg text-gray-400 my-5 mx-0">{a.content}</p>
-                   
+                    <p className="text-lg text-gray-400 my-5 mx-0">{a.content}</p>               
                     </Link>
                   </div>
                 )

@@ -7,7 +7,10 @@ export default function Delete({id}) {
         axios.post('/api/delete',{id:id})
         .then(res=>console.log(res))
     }
-  return <button className="text-black ml-5" onClick={deletePost}>삭제</button>
+    const deleteQueryString = ()=>{
+      axios.get('/api/deletetest/name?ps=1234')
+    }
+  return <button className="text-black ml-5" onClick={deleteQueryString}>삭제</button>
     
 
 }
