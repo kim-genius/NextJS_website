@@ -4,6 +4,7 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import fetcher from'../../utils/fetcher'
 import {ObjectId} from 'mongodb';
+
 export default function Post() {
 
   interface IData {
