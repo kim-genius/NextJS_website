@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
-
+import Loginbutton from './components/Loginbutton';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,6 +21,7 @@ export default function RootLayout({
         <Link className="mr-10" href="/">home</Link>
         <Link className="mr-10" href="/list">list페이지</Link>
         <Link className="mr-10" href="/post">post페이지</Link>
+        <Loginbutton></Loginbutton>
       </div>
         {children}
       </body>
