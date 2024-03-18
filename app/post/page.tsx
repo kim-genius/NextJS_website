@@ -4,7 +4,6 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import fetcher from'../../utils/fetcher'
 import {ObjectId} from 'mongodb';
-
 export const revalidate =60;
 
 export default function Post() {
@@ -14,7 +13,6 @@ export default function Post() {
     "title": string;
     "content": string;
 }
-
     const {data,mutate} = useSWR<IData[]>('/api/search',fetcher)
     mutate()
   return (
