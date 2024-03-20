@@ -2,13 +2,13 @@ import { connectDB } from '../../../../utils/database'
 import { ObjectId } from 'mongodb';
 import Link from 'next/link';
 import Delete from '../../../components/Delete'
-
+import Comment from '../../../components/comment';
 export default async function Detail(props) {
     
     const client = await connectDB;
     const db = client.db('forum')
      let result = await db.collection('post').findOne({_id: new ObjectId(props.params.route)})
-     console.log(result,"결과")
+    
      if(result == undefined) result = []
 
   return (
@@ -21,6 +21,7 @@ export default async function Detail(props) {
         <Link className ='text-black mt-10' href={`/edit/${result._id}`}>수정</Link>
         <Delete id={props.params.route} writer={result.writer}></Delete>
       </div>
+      <Comment postId={result._id}></Comment>
   </div>
 
 

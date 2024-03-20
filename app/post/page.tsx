@@ -14,13 +14,12 @@ export default function Post() {
     "content": string;
 }
     const {data,mutate} = useSWR<IData[]>('/api/search',fetcher)
-    mutate()
   return (
     <div className="bg-gray-50 p-10">
         <Postcreate></Postcreate>
         {
             data?.map((a,index)=>{
-              console.log(a)
+             
                 return(
                     <div className="bg-white rounded-lg p-20 mb-5 shadow-md " key={index}>
                     <Link href={`/post/detail/${a._id}`}>
