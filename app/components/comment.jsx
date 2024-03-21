@@ -14,13 +14,14 @@ export default function Comment({postId}) {
 
   return (
       <div className="flex flex-col text-black border-solid border-black border-2">
-        <div>댓글목록</div>
+        <div className="text-center">댓글목록</div>
         <div className="bg-gray w-1/2 h-1/2">
           {commentList.map((a,index)=>{
             return(
-            <div className="bg-gray text-black flex" key={index}>
-            <p>{a.content}</p>
-            <span className="text-gray ml-2">{a.writer}</span>
+            <div className="bg-gray text-black flex content-center " key={index}>
+            <p className="text-xl">{a.content}</p>
+            <span className="text-sm text-slate-300 ml-2">{a.writer}</span>
+            <hr className="mt-2 text-slate-300"></hr>
             </div>
             )
           })}
