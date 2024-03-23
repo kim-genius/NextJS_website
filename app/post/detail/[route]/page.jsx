@@ -21,7 +21,7 @@ export default async function Detail(props) {
         <Link className ='text-black mt-10' href={`/edit/${result._id}`}>수정</Link>
         <Delete id={props.params.route} writer={result.writer}></Delete>
       </div>
-      <Comment postId={result._id}></Comment>
+      <Comment postId={result._id.toString()}></Comment>
   </div>
 
 

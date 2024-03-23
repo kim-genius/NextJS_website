@@ -4,13 +4,13 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 export default function Comment({postId}) {
-  const [comment,setConnent] = useState("")
+  const [comment,setComment] = useState("")
   const [commentList,setCommentList] = useState([])
 
   useEffect(()=>{
     axios.get(`/api/commentList?postId=${postId}`)
-    .then((res)=>{return(console.log(res),setCommentList(res.data))})
-  },[comment,setConnent])
+    .then((res)=>{return(setCommentList(res.data),console.log('뭐나옴?',comment))})
+  },[comment,setComment,commentList,setCommentList])
 
   return (
       <div className="flex flex-col text-black border-solid border-black border-2">
@@ -26,9 +26,9 @@ export default function Comment({postId}) {
             )
           })}
         </div>
-        <input onChange={(e)=>{setConnent(e.target.value)}}/>
+        <input onChange={(e)=>{setComment(e.target.value)}} value={comment}/>
         <button onClick={()=>{
-          axios.post("/api/comment",{postId:postId,comment:comment})
+          axios.post("/api/comment",{postId:postId,comment:comment}).then(()=>setComment(""))
           }}>댓글전송</button>
       </div>
   )
