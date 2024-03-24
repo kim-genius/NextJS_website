@@ -3,13 +3,16 @@ import { ObjectId } from 'mongodb';
 import Link from 'next/link';
 import Delete from '../../../components/Delete'
 import Comment from '../../../components/comment';
+import { notFound } from "next/navigation";
+
 export default async function Detail(props) {
     
     const client = await connectDB;
     const db = client.db('forum')
      let result = await db.collection('post').findOne({_id: new ObjectId(props.params.route)})
     
-     if(result == undefined) result = []
+     if(result === null){return notFound()}
+     else{
 
   return (
       
@@ -23,7 +26,6 @@ export default async function Detail(props) {
       </div>
       <Comment postId={result._id.toString()}></Comment>
   </div>
-
-
   );
+}
 }
