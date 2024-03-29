@@ -3,6 +3,7 @@ import { ObjectId } from 'mongodb';
 import Link from 'next/link';
 import Delete from '../../../components/Delete'
 import Comment from '../../../components/comment';
+import Imgupload from '../../../components/Imgupload'
 import { notFound } from "next/navigation";
 
 export default async function Detail(props) {
@@ -23,9 +24,9 @@ export default async function Detail(props) {
       <div className="mt-20">
         <Link className ='text-black mt-10' href={`/edit/${result._id}`}>수정</Link>
         <Delete id={props.params.route} writer={result.writer}></Delete>
-        <input type="file" accept='image/*'></input>
-        <img src="" alt=""></img>
+       
       </div>
+      <Imgupload></Imgupload>
       <Comment postId={result._id.toString()}></Comment>
       
   </div>
