@@ -4,10 +4,10 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import fetcher from'../../utils/fetcher'
 import {ObjectId} from 'mongodb';
+
 export const revalidate =60;
 
 export default function Post() {
-
   interface IData {
     "_id": ObjectId; // MongoDB ObjectId를 문자열로 변환
     "title": string;

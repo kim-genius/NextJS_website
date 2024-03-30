@@ -1,7 +1,5 @@
 import "./globals.css";
 import Link from "next/link";
-import Loginbutton from './components/Loginbutton';
-
 
 export default function RootLayout({
   children,
@@ -18,10 +16,13 @@ export default function RootLayout({
           <Link className="mr-10" href="/list">list페이지</Link>
           <Link className="mr-10" href="/post">post페이지</Link>
         </div>
+        
         <div className="w-full flex justify-end mr-4">
+        <button className="bg-transparent text-xl mr-10">🌙</button>
           <Link className="mr-10" href="/auth/login">login</Link>
           <Link className="mr-10" href="/auth/signup">sign up</Link>
         </div>
+        
       </div>
         {children}
       </body>
