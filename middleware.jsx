@@ -1,7 +1,16 @@
 import { NextResponse } from "next/server";
+import {getToken} from'next-auth/jwt';
+export async function  middleware(request){
 
-export function middleware(request){
-    console.log(request.nextUrl)
-    console.log(request.cookies)
-    console.log(request.headers)
+
+
+if(request.nextUrl.pathname.startsWith('/post')){
+    const session = await getToken({req:request})
+    console.log(session)
+    if(session == null){
+        return NextResponse.redirect('http://localhost:3000')
+    }
+    else{
+    return NextResponse.next()}
+}
 }
