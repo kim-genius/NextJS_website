@@ -2,7 +2,6 @@
 import "./globals.css";
 import Link from "next/link";
 import Darkmode from "../app/components/Darkmode"
-import handleSubmit from './components/Handlesubmit'
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -13,13 +12,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`text-white ${true? "bg-gray-500":"bg-black"}`}>
-      <div className="w-full ml-10 flex">
-        <div className="w-full">
+      <body className={`text-black ${true? "bg-white":"bg-gray"}`}>
+      <div className="w-full flex mt-4 h-10 border-b-2">
+        <div className="w-full ml-4">
           <Link className="mr-10" href="/">home</Link>
           <Link className="mr-10" href="/list">list페이지</Link>
           <Link className="mr-10" href="/post">post페이지</Link>
-          <form action={handleSubmit}><button>버튼</button></form>
         </div>
         
         <div className="w-full flex justify-end mr-4">
