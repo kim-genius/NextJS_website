@@ -2,17 +2,18 @@
 import "./globals.css";
 import Link from "next/link";
 import Darkmode from "../app/components/Darkmode"
+import useStore from '../store'
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   
-
+  const mode = useStore((state)=>state.mode)
 
   return (
     <html lang="en">
-      <body className={`text-black ${true? "bg-white":"bg-gray"}`}>
+      <body className={`text-black ${mode? "bg-white":"bg-black text-white"}`}>
       <div className="w-full flex mt-4 h-10 border-b-2">
         <div className="w-full ml-4">
           <Link className="mr-10" href="/">home</Link>
