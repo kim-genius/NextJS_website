@@ -3,6 +3,8 @@ import "./globals.css";
 import Link from "next/link";
 import Darkmode from "../app/components/Darkmode"
 import useStore from '../store'
+import {signOut } from "next-auth/react"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,6 +27,7 @@ export default function RootLayout({
         <Darkmode></Darkmode>
           <Link className="mr-10" href="/auth/login">login</Link>
           <Link className="mr-10" href="/auth/signup">sign up</Link>
+          <button onClick={()=>signOut()}>sign Out</button>
         </div>
         
       </div>
