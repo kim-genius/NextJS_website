@@ -8,14 +8,14 @@ export default function Cartitem ({상품}){
     const [상품개수,set상품개수] = useState([3,0,0,0])
 
     return(
-        <div>
+        <div >
         <h2>Products</h2>
         {        
             상품.map((i,index)=>{
                 return(
-                    <div key={index}>
+                    <div key={index} className="flex flex-col justify-center items-center" >
                     <Image src = {블루베리} alt=''></Image>
-                        <div className="m-20 mt-10 m-auto w-80 bg-white text-black p-10 rounded-md" >
+                        <div className="m-20 mt-5 mb-5 w-80 bg-white text-black p-10 rounded-md border border-black border-solid" >
                             <h4>{i[0]} {i[1]}</h4>
                             <span>{상품개수[index]}</span>
                             <button className="ml-5" onClick={()=>{

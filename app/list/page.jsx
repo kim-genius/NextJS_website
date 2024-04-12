@@ -9,7 +9,7 @@ export default async function List() {
     
     
     return (
-        <div className="text-center">
+        <div className="text-center flex justify-center">
               <Cartitem 상품={상품}></Cartitem>     
       </div>
     );
