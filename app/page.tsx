@@ -15,9 +15,12 @@ export default function Home() {
   const imageLoader2 = () => {
     return "https://imgscf.slidemembers.com/docs/1/1/319/orange_yellow_color_artwall_mockup_presentation_318550.jpg"
   }
+  const imageLoader3 = () => {
+    return "https://imgscf.slidemembers.com/docs/1/1/319/orange_yellow_color_artwall_mockup_presentation_318554.jpg"
+  }
 
   return (
-    <main className ={`${mode? "bg-blue":"bg-black"}`}>
+    <main className ={`${mode? "bg-blue w-full h-1/2":"w-full bg-black"}`}>
       <Swiper
       spaceBetween={50}
       modules={[Navigation, Pagination, Scrollbar, A11y,Autoplay]}
@@ -27,15 +30,17 @@ export default function Home() {
       scrollbar={{ draggable: true }}
       slidesPerView={1}
       >
-      <SwiperSlide>
-      <Image width={2000} height={2000} loader={imageLoader} src="me.png" alt=''></Image>
+      <SwiperSlide  >
+      <Image className="bg-cover"  width={2000} height={2000} loader={imageLoader} src="me.png" alt=''></Image>
+      </SwiperSlide>
+      <SwiperSlide >
+      <Image  className="bg-cover"  width={2000} height={2000} loader={imageLoader2} src="me.png" alt=''></Image>
       </SwiperSlide>
       <SwiperSlide>
-      <Image width={2000} height={2000} loader={imageLoader2} src="me.png" alt=''></Image>
+      <Image   className="bg-cover"  width={2000} height={2000} loader={imageLoader3} src="me.png" alt=''></Image>
       </SwiperSlide>
     </Swiper>
-    <h1 className={`mt-32 text-6xl font-bold underline text-center `}>nextJS website</h1>
-    <h3 className={`mt-28 text-4xl font-bold text-center }`}>by Genius</h3>
+ 
 
     </main>
   );
